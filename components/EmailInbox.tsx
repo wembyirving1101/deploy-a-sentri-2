@@ -68,7 +68,7 @@ export default function EmailInbox({
       </div>
 
       <div className="border-t border-border px-4 py-2 bg-secondary text-center text-xs text-muted-foreground">
-        SENT (5)
+        SENT ({emails.length})
       </div>
     </div>
   )

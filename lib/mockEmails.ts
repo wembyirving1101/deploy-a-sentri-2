@@ -190,6 +190,186 @@ IT Support`,
         'Legitimate request to reset password through official company portal.',
     },
   },
+  {
+    id: 'email-6',
+    from: 'Apple Support',
+    senderDomain: 'support@apple-verify.com',
+    to: 'you@akfung.com',
+    subject: 'Your Apple ID requires verification',
+    body: `Dear Apple ID User,
+
+We've detected a login attempt from a new device. To protect your account, please verify your identity immediately.
+
+[Verify Now](http://apple-verify.com/secure-verify)
+
+This action is required within 24 hours.
+
+Apple Security Team`,
+    timestamp: '10:20 AM',
+    attachments: [],
+    isLegitimate: false,
+    threat: 'phishing',
+    clues: {
+      senderProfile:
+        'Domain is apple-verify.com instead of apple.com. Suspicious subdomain pattern.',
+      linkDetails: [
+        'Link points to apple-verify.com instead of apple.com',
+        'No official Apple security protocols in URL',
+      ],
+      attachmentAnalysis: 'No attachments, but verification link is suspicious.',
+      languageAnalysis:
+        'Urgent 24-hour deadline creates artificial pressure. Apple typically directs to settings.',
+      contextAnalysis:
+        'Unusual to require Apple ID verification for company email account.',
+      requestAnalysis:
+        'Requesting identity verification through email link is not Apple standard practice.',
+    },
+  },
+  {
+    id: 'email-7',
+    from: 'Internal System',
+    senderDomain: 'noreply@akfung.com',
+    to: 'you@akfung.com',
+    subject: 'Monthly Security Audit Complete',
+    body: `Your monthly security audit has been completed. All systems are operating normally.
+
+Please review the attached report for details.
+
+IT Security Team`,
+    timestamp: '09:50 AM',
+    attachments: [
+      {
+        name: 'Security_Audit_Report.pdf',
+        size: 320,
+        type: 'PDF',
+        suspicious: false,
+        details: 'Standard monthly security report',
+      },
+    ],
+    isLegitimate: true,
+    threat: 'legitimate',
+    clues: {
+      senderProfile:
+        'Email from company noreply system using official @akfung.com domain.',
+      linkDetails: [],
+      attachmentAnalysis: 'PDF attachment is legitimate security report from IT department.',
+      languageAnalysis: 'Professional and reassuring tone. Standard IT communication format.',
+      contextAnalysis:
+        'Monthly security audits are normal company procedure.',
+      requestAnalysis:
+        'No requests for sensitive information. Just providing audit results.',
+    },
+  },
+  {
+    id: 'email-8',
+    from: 'Unknown Sender',
+    senderDomain: 'info@business-opportunity.net',
+    to: 'you@akfung.com',
+    subject: 'Exclusive Business Opportunity - Invest Now',
+    body: `Hello,
+
+We have an exclusive investment opportunity that could yield 500% returns!
+
+To learn more and secure your spot, please reply with:
+- Your full name
+- Date of birth
+- Bank account information
+
+Limited spots available!
+
+Business Opportunities Ltd.`,
+    timestamp: '08:15 AM',
+    attachments: [],
+    isLegitimate: false,
+    threat: 'phishing',
+    clues: {
+      senderProfile:
+        'Unknown sender from generic domain. Typical of spam and phishing campaigns.',
+      linkDetails: [],
+      attachmentAnalysis: 'No attachments, but request for personal banking info is red flag.',
+      languageAnalysis:
+        'Unrealistic returns claim and artificial scarcity ("limited spots") are classic scam tactics.',
+      contextAnalysis:
+        'Unsolicited business opportunity sent to company email.',
+      requestAnalysis:
+        'Requesting personal and financial information via email is a major phishing indicator.',
+    },
+  },
+  {
+    id: 'email-9',
+    from: 'Finance Department',
+    senderDomain: 'finance@akfung.com',
+    to: 'you@akfung.com',
+    subject: 'Expense Report Submission Required',
+    body: `Hi,
+
+Please submit your expense reports for the month of July by end of business Friday.
+
+Use the attached expense template and email to finance@akfung.com.
+
+Thank you!
+Finance Team`,
+    timestamp: '07:30 AM',
+    attachments: [
+      {
+        name: 'Expense_Report_Template.xlsx',
+        size: 85,
+        type: 'Excel',
+        suspicious: false,
+        details: 'Standard company expense report form',
+      },
+    ],
+    isLegitimate: true,
+    threat: 'legitimate',
+    clues: {
+      senderProfile:
+        'Email from company Finance department using official @akfung.com domain.',
+      linkDetails: [],
+      attachmentAnalysis: 'Excel template is legitimate company form for expense reporting.',
+      languageAnalysis: 'Professional, clear instructions with reasonable deadline.',
+      contextAnalysis:
+        'Monthly expense reporting is normal company procedure.',
+      requestAnalysis:
+        'Standard request for employees to submit required business expenses.',
+    },
+  },
+  {
+    id: 'email-10',
+    from: 'CEO Office',
+    senderDomain: 'ceo@akfung.com',
+    to: 'you@akfung.com',
+    subject: 'Urgent: Update Your W-2 Information',
+    body: `Dear Employee,
+
+Please update your W-2 information immediately by clicking below.
+
+Your current information appears incomplete in our system.
+
+[Update W-2 Now](http://w2-update.org/secure-form)
+
+This must be completed by EOD today.
+
+HR Department`,
+    timestamp: '06:45 AM',
+    attachments: [],
+    isLegitimate: false,
+    threat: 'phishing',
+    clues: {
+      senderProfile:
+        'Email claims to be from CEO but uses generic language. Real CEO emails are personalized.',
+      linkDetails: [
+        'Link points to w2-update.org instead of company domain',
+        'Suspicious domain unrelated to company',
+      ],
+      attachmentAnalysis: 'No attachments, but link is clearly phishing.',
+      languageAnalysis:
+        'Artificial urgency with "EOD today" deadline. Companies typically allow more time for W-2 updates.',
+      contextAnalysis:
+        'W-2 updates would come from HR with company domain, not suspicious external link.',
+      requestAnalysis:
+        'Companies never request W-2 updates via email links. This is a classic tax-season phishing attack.',
+    },
+  },
 ]
 
 export const verificationContacts = [

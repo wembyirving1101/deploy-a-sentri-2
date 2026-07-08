@@ -109,7 +109,15 @@ export default function Home() {
               setEmailNotifications((prev) => prev + 1)
               setToastMessage(`New Email Investigation: ${incident.id}`)
               // Add email to active emails so it appears in the inbox
-              setActiveEmails((prev) => new Set([...prev, incident.id]))
+              setActiveEmails((prev) => {
+                const newSet = new Set([...prev, incident.id])
+                // Auto-select the first email in the inbox
+                setGameState((prevState) => ({
+                  ...prevState,
+                  currentEmailId: incident.id,
+                }))
+                return newSet
+              })
             } else if (incident.type === 'password') {
               setPasswordNotifications((prev) => prev + 1)
               setToastMessage(`New Password Strength Task: ${incident.id}`)
