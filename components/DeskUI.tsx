@@ -105,7 +105,7 @@ export default function DeskUI({ progressPercentage, onEndDay, tasksCompleted = 
             <LogOut className="w-5 h-5" />
             <span className="text-[10px] ui-font uppercase tracking-wider">End Day</span>
             <span className="text-[9px] ui-font text-opacity-80">
-              {tasksCompleted}/4 TASKS
+              {tasksCompleted}/10 TASKS
             </span>
           </button>
         </div>
