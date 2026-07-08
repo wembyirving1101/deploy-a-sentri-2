@@ -111,28 +111,31 @@ export default function Home() {
               // Add email to active emails so it appears in the inbox
               setActiveEmails((prev) => {
                 const newSet = new Set([...prev, incident.id])
-                // Auto-select the first email in the inbox
+                // Auto-select the email and switch to email task view
                 setGameState((prevState) => ({
                   ...prevState,
                   currentEmailId: incident.id,
+                  currentTaskType: 'email',
                 }))
                 return newSet
               })
             } else if (incident.type === 'password') {
               setPasswordNotifications((prev) => prev + 1)
               setToastMessage(`New Password Strength Task: ${incident.id}`)
-              // Auto-select the new password task
+              // Auto-select the new password task and switch to password task view
               setGameState((prevState) => ({
                 ...prevState,
                 currentPasswordId: incident.id,
+                currentTaskType: 'password',
               }))
             } else if (incident.type === 'data-classification') {
               setDataClassificationNotifications((prev) => prev + 1)
               setToastMessage(`New Data Classification: ${incident.id}`)
-              // Auto-select the new data classification task
+              // Auto-select the new data classification task and switch to data classification task view
               setGameState((prevState) => ({
                 ...prevState,
                 currentDocumentId: incident.id,
+                currentTaskType: 'data-classification',
               }))
             }
             
