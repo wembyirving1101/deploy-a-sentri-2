@@ -1,6 +1,13 @@
 import { Bot } from 'lucide-react'
 
-export default function ProgressPanel() {
+interface ProgressPanelProps {
+  tasksCompleted?: number
+}
+
+export default function ProgressPanel({ tasksCompleted = 0 }: ProgressPanelProps) {
+  const maxTasks = 10
+  const progressPercentage = (tasksCompleted / maxTasks) * 100
+
   return (
     <div className="bg-card border border-border rounded p-4 flex-1 flex flex-col">
       <div className="space-y-4 flex-1">
@@ -12,10 +19,10 @@ export default function ProgressPanel() {
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-xs text-muted-foreground">TODAY&apos;S TASKS</span>
-              <span className="font-mono text-sm font-bold text-accent">2/4</span>
+              <span className="font-mono text-sm font-bold text-accent">{tasksCompleted}/10</span>
             </div>
             <div className="bg-secondary rounded h-4 overflow-hidden border border-border">
-              <div className="bg-accent h-full w-1/2 transition-all duration-300" />
+              <div className="bg-accent h-full transition-all duration-300" style={{ width: `${progressPercentage}%` }} />
             </div>
           </div>
         </div>

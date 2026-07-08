@@ -129,6 +129,11 @@ export default function Home() {
             } else if (incident.type === 'data-classification') {
               setDataClassificationNotifications((prev) => prev + 1)
               setToastMessage(`New Data Classification: ${incident.id}`)
+              // Auto-select the new data classification task
+              setGameState((prevState) => ({
+                ...prevState,
+                currentDocumentId: incident.id,
+              }))
             }
             
             // Clear previous toast timeout
@@ -459,7 +464,7 @@ export default function Home() {
             passwordNotificationCount={passwordNotifications}
             dataClassificationNotificationCount={dataClassificationNotifications}
           />
-          <ProgressPanel />
+          <ProgressPanel tasksCompleted={gameState.todaysTasksCompleted} />
         </div>
 
         {/* Center Content - Task-specific UI */}
