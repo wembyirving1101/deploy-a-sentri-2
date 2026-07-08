@@ -1,0 +1,58 @@
+import { Password } from './types'
+
+export const mockPasswords: Password[] = [
+  {
+    id: 'pwd-1',
+    employee: 'Jason Lee',
+    department: 'Finance',
+    submitted: 'P@ssword2025',
+    timestamp: '09:12 AM',
+    characteristics: [
+      { id: 'length', label: 'Minimum 12 characters', description: 'Has 12 characters', icon: '📏', present: true, checked: false, weight: 50 },
+      { id: 'diversity', label: 'Character Diversity', description: 'Contains uppercase, lowercase, numbers, and symbols', icon: 'Aa', present: true, checked: false, weight: 30 },
+      { id: 'dictionary', label: 'Dictionary Words', description: 'Contains common word "password"', icon: '📚', present: true, checked: false, weight: 20 },
+      { id: 'sequential', label: 'Sequential Numbers', description: 'No sequential patterns detected', icon: '1️⃣', present: false, checked: false, weight: 25 },
+      { id: 'keyboard', label: 'Keyboard Patterns', description: 'No keyboard patterns detected', icon: '⌨️', present: false, checked: false, weight: 25 },
+      { id: 'personal', label: 'Personal Information', description: 'Does not contain employee name or common personal info', icon: '👤', present: false, checked: false, weight: 20 },
+      { id: 'company', label: 'Company Name', description: 'Does not contain company name', icon: '🏢', present: false, checked: false, weight: 20 },
+      { id: 'leaked', label: 'Known Leaked Passwords', description: 'Not in known breach database', icon: '⚠️', present: false, checked: false, weight: 50 },
+    ],
+    correctDecision: 'revision',
+  },
+  {
+    id: 'pwd-2',
+    employee: 'Sarah Chen',
+    department: 'Engineering',
+    submitted: 'BlueMountain#847',
+    timestamp: '09:45 AM',
+    characteristics: [
+      { id: 'length', label: 'Minimum 12 characters', description: 'Has 14 characters', icon: '📏', present: true, checked: false, weight: 50 },
+      { id: 'diversity', label: 'Character Diversity', description: 'Contains uppercase, lowercase, numbers, and symbols', icon: 'Aa', present: true, checked: false, weight: 30 },
+      { id: 'dictionary', label: 'Dictionary Words', description: 'Contains common words "Blue" and "Mountain"', icon: '📚', present: true, checked: false, weight: 20 },
+      { id: 'sequential', label: 'Sequential Numbers', description: 'No sequential patterns detected', icon: '1️⃣', present: false, checked: false, weight: 25 },
+      { id: 'keyboard', label: 'Keyboard Patterns', description: 'No keyboard patterns detected', icon: '⌨️', present: false, checked: false, weight: 25 },
+      { id: 'personal', label: 'Personal Information', description: 'Does not contain employee name', icon: '👤', present: false, checked: false, weight: 20 },
+      { id: 'company', label: 'Company Name', description: 'Does not contain company name', icon: '🏢', present: false, checked: false, weight: 20 },
+      { id: 'leaked', label: 'Known Leaked Passwords', description: 'Not in known breach database', icon: '⚠️', present: false, checked: false, weight: 50 },
+    ],
+    correctDecision: 'revision',
+  },
+  {
+    id: 'pwd-3',
+    employee: 'Michael Torres',
+    department: 'Sales',
+    submitted: 'qwerty123456',
+    timestamp: '08:30 AM',
+    characteristics: [
+      { id: 'length', label: 'Minimum 12 characters', description: 'Has 12 characters', icon: '📏', present: true, checked: false, weight: 50 },
+      { id: 'diversity', label: 'Character Diversity', description: 'Only contains lowercase and numbers', icon: 'Aa', present: false, checked: false, weight: 30 },
+      { id: 'dictionary', label: 'Dictionary Words', description: 'No common dictionary words', icon: '📚', present: false, checked: false, weight: 20 },
+      { id: 'sequential', label: 'Sequential Numbers', description: 'Contains sequential pattern "123456"', icon: '1️⃣', present: true, checked: false, weight: 25 },
+      { id: 'keyboard', label: 'Keyboard Patterns', description: 'Contains keyboard pattern "qwerty"', icon: '⌨️', present: true, checked: false, weight: 25 },
+      { id: 'personal', label: 'Personal Information', description: 'Does not contain employee name', icon: '👤', present: false, checked: false, weight: 20 },
+      { id: 'company', label: 'Company Name', description: 'Does not contain company name', icon: '🏢', present: false, checked: false, weight: 20 },
+      { id: 'leaked', label: 'Known Leaked Passwords', description: 'Found in common passwords list', icon: '⚠️', present: true, checked: false, weight: 50 },
+    ],
+    correctDecision: 'reject',
+  },
+]
