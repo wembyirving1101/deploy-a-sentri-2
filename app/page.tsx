@@ -91,7 +91,7 @@ export default function Home() {
           
           if (incident) {
             console.log('[v0] New incident generated:', incident)
-            usedIncidentsRef.current.add(`${incident.type.substring(0, 3)}-${incident.id}`)
+            usedIncidentsRef.current.add(incident.id)
             setGameState((prev) => ({
               ...prev,
               dispatchQueue: [
@@ -121,6 +121,11 @@ export default function Home() {
             } else if (incident.type === 'password') {
               setPasswordNotifications((prev) => prev + 1)
               setToastMessage(`New Password Strength Task: ${incident.id}`)
+              // Auto-select the new password task
+              setGameState((prevState) => ({
+                ...prevState,
+                currentPasswordId: incident.id,
+              }))
             } else if (incident.type === 'data-classification') {
               setDataClassificationNotifications((prev) => prev + 1)
               setToastMessage(`New Data Classification: ${incident.id}`)
@@ -317,6 +322,13 @@ export default function Home() {
     setShowPasswordFeedback(false)
     setLastPasswordDecision(null)
     setCheckedPasswordCharacteristics(new Set())
+    
+    // Increment tasks completed
+    setGameState((prev) => ({
+      ...prev,
+      todaysTasksCompleted: prev.todaysTasksCompleted + 1,
+    }))
+    
     // Move to next password
     const nextPasswordIndex = mockPasswords.findIndex((p) => p.id === gameState.currentPasswordId) + 1
     if (nextPasswordIndex < mockPasswords.length) {
@@ -357,6 +369,13 @@ export default function Home() {
   const handleContinueAfterDataClassificationFeedback = () => {
     setShowDataClassificationFeedback(false)
     setLastDataClassificationDecision(null)
+    
+    // Increment tasks completed
+    setGameState((prev) => ({
+      ...prev,
+      todaysTasksCompleted: prev.todaysTasksCompleted + 1,
+    }))
+    
     // Move to next document
     const nextDocumentIndex = mockDataClassifications.findIndex((d) => d.id === gameState.currentDocumentId) + 1
     if (nextDocumentIndex < mockDataClassifications.length) {
